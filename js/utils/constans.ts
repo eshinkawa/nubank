@@ -1,0 +1,1 @@
+export const BASE_URL: string = "https://5dc05c0f95f4b90014ddc651.mockapi.io/elo7/api/1/products";
