@@ -17,7 +17,8 @@ export const Colors = {
   greenElo: '#00A2A1',
   orangeElo: '#F96600',
   greyElo: '#A0A0A4',
-  purpleNu: '#81259D'
+  purpleNu: '#81259D',
+  nuGray: '#E4E0EE'
 };
 
 export const FontStyles = {

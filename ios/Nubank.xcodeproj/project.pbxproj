@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* NubankTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* NubankTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -20,6 +19,11 @@
 		44EBE1F56A837E87821D6D9A /* libPods-Nubank-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F35E8B27C930DA02A6BEE3 /* libPods-Nubank-tvOSTests.a */; };
 		A49FB7A397919A69F7106C87 /* libPods-Nubank-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F976FFA31768C81E80BC1E /* libPods-Nubank-tvOS.a */; };
 		D5C845568D4C7F79AE070ED0 /* libPods-NubankTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7E7204C7574D802DEB9C58 /* libPods-NubankTests.a */; };
+		E676AC383C684D52A723CE38 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 038D22E61C9B478D9243270F /* OpenSans-Bold.ttf */; };
+		14D9A9696EE044EDB81C1A16 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58FA4F2C1D554E9E89A9E01F /* OpenSans-ExtraBold.ttf */; };
+		E559CF9FA57644E3915175DC /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1ABC7233CFB845D99ADFE0EA /* OpenSans-Light.ttf */; };
+		BAAC0C6081CC42D7B19FCDBB /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30D1ADC79C6A458FB7776CAC /* OpenSans-Regular.ttf */; };
+		6F2C251A496244F291BEF5DD /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF42DC588C04A50866E7CF1 /* OpenSans-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,11 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F2469CC0E608968E7389C6F8 /* libPods-Nubank.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Nubank.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9AE7B7F942718DFB2DF4333 /* Pods-Nubank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nubank.debug.xcconfig"; path = "Target Support Files/Pods-Nubank/Pods-Nubank.debug.xcconfig"; sourceTree = "<group>"; };
+		038D22E61C9B478D9243270F /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		58FA4F2C1D554E9E89A9E01F /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; name = "OpenSans-ExtraBold.ttf"; path = "../assets/fonts/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1ABC7233CFB845D99ADFE0EA /* OpenSans-Light.ttf */ = {isa = PBXFileReference; name = "OpenSans-Light.ttf"; path = "../assets/fonts/OpenSans-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		30D1ADC79C6A458FB7776CAC /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0AF42DC588C04A50866E7CF1 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "OpenSans-SemiBold.ttf"; path = "../assets/fonts/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +174,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				F493B65390CA8ABDFE7D0E98 /* Pods */,
+				1EE93739D11A405CA6A27CF0 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +207,19 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		1EE93739D11A405CA6A27CF0 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				038D22E61C9B478D9243270F /* OpenSans-Bold.ttf */,
+				58FA4F2C1D554E9E89A9E01F /* OpenSans-ExtraBold.ttf */,
+				1ABC7233CFB845D99ADFE0EA /* OpenSans-Light.ttf */,
+				30D1ADC79C6A458FB7776CAC /* OpenSans-Regular.ttf */,
+				0AF42DC588C04A50866E7CF1 /* OpenSans-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -285,7 +308,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -338,6 +361,11 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				E676AC383C684D52A723CE38 /* OpenSans-Bold.ttf in Resources */,
+				14D9A9696EE044EDB81C1A16 /* OpenSans-ExtraBold.ttf in Resources */,
+				E559CF9FA57644E3915175DC /* OpenSans-Light.ttf in Resources */,
+				BAAC0C6081CC42D7B19FCDBB /* OpenSans-Regular.ttf in Resources */,
+				6F2C251A496244F291BEF5DD /* OpenSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

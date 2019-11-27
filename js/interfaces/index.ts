@@ -1,27 +1,30 @@
 import { ReactNode } from "react";
+export interface IProduct {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+}
+
+export interface IOffer {
+  id: string;
+  price: number;
+  product: IProduct;
+}
+
+export interface IUser {
+  name: string;
+  balance: number;
+  offers: IOffer[];
+}
+export interface IContextProviderProps {
+  defaults?: Partial<IData>;
+  children?: ReactNode;
+}
 
 export interface IData {
-    isLoading: boolean,
-    setIsLoading: any,
-    headerInput: string,
-    setHeaderInput: Function,
-    getList: Function,
-    products: IProduct[];
-  }
-  
-  export interface IContextProviderProps {
-    defaults?: Partial<IData>;
-    children?: ReactNode;
-  }
-  export interface IProduct {
-    id: string,
-    picture: string,
-    title: string,
-    _link: string
-    price: IPrice,
-  }
-  
-  export interface IPrice {
-    current: string,
-    installment: string
-  }
+  name: string;
+  balance: number;
+  product: IProduct;
+  offers: IOffer[]
+}

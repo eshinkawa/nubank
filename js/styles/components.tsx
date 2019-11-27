@@ -9,7 +9,7 @@ const CenteredContainerStr = `
 
 export const CenteredContainer = styled.View`
     ${CenteredContainerStr};
-    background-color: ${(props: string) => props.bgColor || Colors.white};
+    background-color: ${(props: string) => props.bgColor || Colors.nuGray};
 `;
 
 export const SafeAreaCenteredContainer = styled.SafeAreaView`

@@ -1,1 +1,2 @@
-export const BASE_URL: string = "https://5dc05c0f95f4b90014ddc651.mockapi.io/elo7/api/1/products";
+export const BASE_URL: string = 'https://staging-nu-needful-things.nubank.com.br/query';
+export const BEARER_TOKEN: string = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhd2Vzb21lY3VzdG9tZXJAZ21haWwuY29tIn0.cGT2KqtmT8KNIJhyww3T8fAzUsCD5_vxuHl5WbXtp8c'

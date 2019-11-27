@@ -4,16 +4,15 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import { IContextProviderProps } from '../interfaces';
+import { IData, IOffer, IProduct, IContextProviderProps } from '../interfaces';
 
 import gql from 'graphql-tag'
 import { useQuery } from '@apollo/react-hooks';
 
-const defaultData = {
-  name: false,
+const defaultData: IData = {
+  name: '',
   balance: 0,
-  offers: [],
-  product: {}
+  offers: []
 };
 
 const UserDataQuery = gql`
@@ -39,10 +38,9 @@ const UserDataQuery = gql`
 
 export const ContextProvider = (props: IContextProviderProps): ReactElement => {
 
-  const [userData, setUserData] = useState(defaultData);
-  const { loading, data } = useQuery(UserDataQuery);
-  console.log(data.viewer.name);
-  return (  
+  const { data } = useQuery(UserDataQuery);
+
+  return (
     <DataContext.Provider
       value={{ data }}>
       {props.children}
@@ -50,6 +48,6 @@ export const ContextProvider = (props: IContextProviderProps): ReactElement => {
   );
 };
 
-export const DataContext = createContext(defaultData);
+export const DataContext = createContext({});
 
 
