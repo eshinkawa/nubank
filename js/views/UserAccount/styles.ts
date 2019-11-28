@@ -1,68 +1,78 @@
 import styled from "styled-components/native";
-import { ScreenWidth, Colors, Spacing } from "../../styles/base";
+import { ScreenWidth, Colors, Spacing, FontStyles } from "../../styles/base";
 
-export const SearchInfoBanner = styled.View`
-  height: 48;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+export const Header = styled.View`
+  background-color: #45244E;
+  padding: ${Spacing.Large};
   width: ${ScreenWidth};
-  padding-left: ${Spacing.Large};
-  padding-right: ${Spacing.Large};
-  border-bottom-width: 1;
-  border-color: ${Colors.lightGrey};
-`;
-
-export const GridItem = styled.View`
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  width: ${ScreenWidth / 2};
   height: 200;
 `;
 
-export const ItemImage = styled.Image`
-  width: ${ScreenWidth / 2.2};
-  height: 120;
+export const RoundUserImage = styled.View`
+    width: 70px;
+    height: 70px;
+    border-radius: 50;
+    margin-bottom: ${Spacing.Small};
 `;
 
-export const ItemDesc = styled.Text`
-  color: #00A2A1;
-  flex-wrap: wrap;
-  width: ${ScreenWidth / 2.2};
-  margin-top: 4;
-  font-size: 16;
-  font-weight: 600;
+export const TextContent = styled.Text`
+  font-family: ${(props: string) => FontStyles[props.weight]};
+  font-size: ${(props: string) => props.size};
+  color: ${(props: string) => props.color};
 `;
 
-export const ItemPrice = styled(ItemDesc)`
-  font-weight: 500;
-  margin-top: 2;
-  color: #F96600;
+export const UserName = styled.Text`
+  color: ${Colors.black};
+  font-family: ${FontStyles.regular};
+  font-size: 38;
 `;
 
-export const ItemInstallment = styled(ItemDesc)`
-  font-weight: 500;
-  margin-top: 2;
-  color: #A0A0A4;
-  font-size: 14;
-  font-weight: bold;
+export const BalanceBox = styled.View`
+  padding: 24px;
+  align-self: center; 
+  justify-content: center; 
+  width: ${ScreenWidth * 0.8}; 
+  height: 90; 
+  background-color: #E06263; 
+  border-radius: 10; 
+  margin-top: -42;
 `;
 
-
-export const RightContent = styled.View`
-  flex: 4;
-`;
-
-export const LeftContent = styled.View`
+export const Offers = styled.View`
   flex: 1;
   flex-direction: row;
-  top: 16;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
 `;
 
-export const BannerText = styled.Text`
-  color: ${Colors.lightGrey};
+export const BoxOffer = styled.View`
+  height: 240px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: ${ScreenWidth / 2.2};
+  margin: 6px;
+  background-color: #fff;
+  border-radius: 8;
+  shadow-color: #ccc;
+  shadow-offset: 0px 2px;
+  shadow-opacity: 0.5;
+  shadow-radius: 1px;
 `;
 
-export const BannerTextRight = styled(BannerText)`
-  font-weight: bold;
+export const UpperOfferBox = styled.View`
+ flex: 6;
+ align-self: center;
+ justify-content: center;
+`;
+
+
+export const LowerOfferBox = styled.View`
+ flex: 2;
+ padding: ${Spacing.Small};
+ align-self: center;
+ justify-content: center;
 `;

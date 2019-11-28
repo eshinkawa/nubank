@@ -38,11 +38,11 @@ export const FontSize = {
 };
 
 export const Spacing = {
-  XSmall: 4,
-  Small: 8,
-  Medium: 16,
-  Large: 24,
-  XLarge: 32,
+  XSmall: '4px',
+  Small: '8px',
+  Medium: '16px',
+  Large: '24px',
+  XLarge: '32px',
 };
 
 const CenteredContainerStr = `

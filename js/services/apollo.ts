@@ -2,7 +2,7 @@ import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http'; 
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import { BEARER_TOKEN, BASE_URL } from '../utils/constans'
+import { BEARER_TOKEN, BASE_URL } from '../utils/constants'
 
 const httpLink = new HttpLink({
   uri: BASE_URL,

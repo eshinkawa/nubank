@@ -2,12 +2,16 @@ import React, { useEffect, FunctionComponent } from 'react';
 import { Image } from 'react-native';
 import { Colors, ScreenWidth, ScreenHeight } from '../../styles/base';
 import { SafeAreaCenteredContainer } from '../../styles/components';
+import { useQuery } from '@apollo/react-hooks';
+import { USER_DATA } from '../../schemas/userSchema';
 
 interface Props {
   navigation: any
 }
 
 const SplashScreen: FunctionComponent<Props> = ({ navigation }) => {
+  const { data } = useQuery(USER_DATA);
+
   useEffect(() => {
     setTimeout(() => {
       conditionalRouting();
