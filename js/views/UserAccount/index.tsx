@@ -1,17 +1,17 @@
 import React, { FunctionComponent } from 'react';
 import { SafeAreaCenteredContainer } from '../../styles/components';
-import { Colors, ScreenWidth } from '../../styles/base';
-import { View, Image, TouchableOpacity, ScrollView, Text, ActivityIndicator } from 'react-native';
+import { Colors } from '../../styles/base';
+import { View, Image, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { USER_DATA } from '../../schemas/userSchema';
 import { currencyBRMask } from '../../utils/utils'
 import { Header, RoundUserImage, TextContent, Offers, BoxOffer, UpperOfferBox, LowerOfferBox, BalanceBox } from './styles';
 import { useNavigation } from 'react-navigation-hooks';
+import { IOffer } from '../../interfaces';
 
 const UserAccount: FunctionComponent = () => {
   const { navigate } = useNavigation();
   const { data, loading } = useQuery(USER_DATA);
-  console.log(data)
   return (
     <SafeAreaCenteredContainer>
       {loading ? <ActivityIndicator size="large"/> :
@@ -31,7 +31,7 @@ const UserAccount: FunctionComponent = () => {
           </BalanceBox>
           <TextContent color={'#000'} size={24} weight={'regular'} style={{ padding: 16, paddingBottom: 16 }}>Ofertas disponíveis!</TextContent>
           <Offers>
-            {data.viewer.offers.map(item => (
+            {data.viewer.offers.map((item: IOffer) => (
               <TouchableOpacity onPress={() => navigate('Offer', { item, balance: data.viewer.balance })} key={item.id}>
                 <BoxOffer>
                   <UpperOfferBox>
