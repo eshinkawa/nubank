@@ -5,7 +5,7 @@ import { currencyBRMask } from "../../../utils/utils";
 import { close } from '../../../../assets';
 import { OfferTitle, OfferNameText, OfferPriceText, DescText, CodeText, ModalHeader, ImageOfferSection, ImageOfferDesc, PurchaseButton, ModalContainer, ModalContent, ModalBottomLine, ModalFlexImageText, ConfirmPurchaseButton, ModalTitleContainer } from "../styles";
 
-const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount, mutationLoading }): ReactElement => {
+const OfferComp: FunctionComponent = ({ item, balance, modal, setModal, purchase, navigateToAccount, mutationLoading }): ReactElement => {
   const {
     id,
     price,
