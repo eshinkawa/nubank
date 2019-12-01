@@ -1,28 +1,18 @@
 import React, { ReactElement, Fragment } from "react";
-import { View, Image, TouchableOpacity, Modal, Alert, ActivityIndicator } from "react-native";
-import { ScreenWidth, ScreenHeight, Colors } from "../../../styles/base";
-import {
-  TextContent,
-  ImageOfferSection,
-  ImageOfferDesc,
-  PurchaseButton,
-  ModalContainer,
-  ModalContent,
-  ModalBottomLine,
-  ModalFlexImageText,
-  ConfirmPurchaseButton
-} from "../../UserAccount/styles";
+import { View, Image, TouchableOpacity, Modal, Alert, ActivityIndicator, Text } from "react-native";
+import { ScreenWidth, ScreenHeight, Colors, VertSpacing, Flex, TextContent } from "../../../styles/base";
 import { currencyBRMask } from "../../../utils/utils";
 import { close } from '../../../../assets';
-import { useQuery } from "@apollo/react-hooks";
-import { USER_DATA } from "../../../schemas/userSchema";
+import { OfferTitle, OfferNameText, OfferPriceText, DescText, CodeText, ModalHeader, ImageOfferSection, ImageOfferDesc, PurchaseButton, ModalContainer, ModalContent, ModalBottomLine, ModalFlexImageText, ConfirmPurchaseButton } from "../styles";
 
-const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount, mutationLoading, client }): ReactElement => {
+const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount, mutationLoading }): ReactElement => {
   const {
     id,
     price,
     product: { name, description, image }
   } = item;
+
+  console.log(item)
 
   return (
     <Fragment>
@@ -34,63 +24,52 @@ const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount
         />
       </ImageOfferSection>
       <ImageOfferDesc>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <TextContent
+        <OfferTitle>
+          <OfferNameText
             color={"#0A0807"}
             size={24}
             weight={"regular"}
-            style={{ textAlign: "left", marginBottom: 8, flex: 1 }}
           >
             {name}
-          </TextContent>
-          <TextContent
+          </OfferNameText>
+          <OfferPriceText
             color={"#000"}
             size={24}
             weight={"semiBold"}
-            style={{
-              textAlign: "right",
-              alignSelf: "center",
-              marginBottom: 8,
-              flex: 1
-            }}
           >
             {currencyBRMask(price)}
-          </TextContent>
-        </View>
+          </OfferPriceText>
+        </OfferTitle>
         <View style={{ height: 12 }} />
-        <TextContent
+        <DescText
           color={"#0A0807"}
           size={14}
           weight={"semiBold"}
-          style={{ marginBottom: 8 }}
         >
           Descrição
-        </TextContent>
-        <TextContent
+        </DescText>
+        <DescText
           color={Colors.darkGreen}
           size={16}
           weight={"bold"}
-          style={{ marginBottom: 8 }}
         >
           {description}
-        </TextContent>
-        <View style={{ height: 12 }} />
-        <TextContent
+        </DescText>
+        <VertSpacing size={12} />
+        <CodeText
           color={"#0A0807"}
           size={14}
           weight={"semiBold"}
-          style={{ marginBottom: 8 }}
         >
           Código do produto
-        </TextContent>
-        <TextContent
+        </CodeText>
+        <CodeText
           color={Colors.darkGreen}
           size={16}
           weight={"bold"}
-          style={{ marginBottom: 8 }}
         >
           {id}
-        </TextContent>
+        </CodeText>
       </ImageOfferDesc>
       <TouchableOpacity
         onPress={() => setModal(true)}
@@ -112,11 +91,11 @@ const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount
           Saldo insuficiente
         </TextContent>
       )}
-      <View style={{ height: 12 }} />
+      <VertSpacing size={12} />
       {modal && (
         <Modal animationType="slide" transparent={true} onRequestClose={() => setModal(false)}>
           <ModalContainer>
-            <View style={{ flex: 0.5 }} />
+            <Flex size={0.5} />
             <ModalContent>
               <TouchableOpacity onPress={() => setModal(false)}>
                 <Image
@@ -128,30 +107,30 @@ const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount
               <TextContent color={"#000"} size={24} weight={"regular"}>
                 Resumo da compra
               </TextContent>
-              <View style={{ height: 24 }} />
+              <VertSpacing size={24} />
               <TextContent color={"#9DA4AF"} size={18} weight={"regular"}>
                 Detalhe da oferta
               </TextContent>
               <ModalBottomLine />
-              <View style={{ height: 24 }} />
+              <VertSpacing size={24} />
               <ModalFlexImageText>
-                <View style={{ flex: 3 }}>
+                <Flex size={3}>
                   <Image
                     source={{ uri: image }}
                     resizeMode="cover"
-                    style={{ width: "100%", height: 90 }}
+                    style={{ width: '100%', height: 90  }}
                   />
-                </View>
-                <View style={{ flex: 7, marginLeft: 16 }}>
+                </Flex>
+                <ModalHeader>
                   <TextContent color={"#000"} size={16} weight={"regular"}>
                     Nome: {name}
                   </TextContent>
                   <TextContent color={"#000"} size={16} weight={"regular"}>
                     Preço: {currencyBRMask(price)}
                   </TextContent>
-                </View>
+                </ModalHeader>
               </ModalFlexImageText>
-              <View style={{ height: 32 }} />
+              <VertSpacing size={48} />
               <TouchableOpacity disabled={mutationLoading} onPress={() => purchase({ variables: { id } }).then(res => {
                   console.log(res.data)
                   if (res.data.purchase.success){
@@ -178,7 +157,7 @@ const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount
                 </ConfirmPurchaseButton>
               </TouchableOpacity>
             </ModalContent>
-            <View style={{ flex: 0.5 }} />
+            <Flex size={0.5} />
           </ModalContainer>
         </Modal>
       )}

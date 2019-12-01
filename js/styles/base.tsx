@@ -51,6 +51,21 @@ const CenteredContainerStr = `
   align-items: center;
 `;
 
+export const TextContent = styled.Text`
+  font-family: ${(props: string) => FontStyles[props.weight]};
+  font-size: ${(props: string) => props.size};
+  color: ${(props: string) => props.color};
+`;
+
+export const VertSpacing = styled.View`
+  height: ${(props: string) => props.size};
+`;
+
+export const Flex = styled.View`
+  flex: ${(props: string) => props.size};
+`;
+
+
 export const CenteredContainer = styled.View`
   ${CenteredContainerStr};
   background-color: ${(props: string) => props.bgColor || Colors.white};

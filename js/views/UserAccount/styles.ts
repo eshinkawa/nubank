@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { ScreenWidth, Colors, Spacing, FontStyles } from "../../styles/base";
+import { ScreenWidth, Colors, Spacing, FontStyles, TextContent } from "../../styles/base";
 
 export const Header = styled.View`
   background-color: #45244E;
@@ -17,10 +17,23 @@ export const RoundUserImage = styled.View`
     margin-bottom: ${Spacing.Small};
 `;
 
-export const TextContent = styled.Text`
-  font-family: ${(props: string) => FontStyles[props.weight]};
-  font-size: ${(props: string) => props.size};
-  color: ${(props: string) => props.color};
+export const TextName = styled(TextContent)`
+  margin-bottom: ${Spacing.Medium};
+`;
+
+export const TextCenter = styled(TextContent)`
+  text-align: center;
+`;
+
+export const TextCenterWrap = styled(TextCenter)`
+  flex-wrap: wrap;
+`;
+
+
+export const TextOffer = styled(TextContent)`
+  padding: ${Spacing.Medium};
+  padding-top: ${Spacing.XLarge};
+  padding-bottom: ${Spacing.Medium};
 `;
 
 export const UserName = styled.Text`
@@ -72,58 +85,3 @@ export const LowerOfferBox = styled.View`
  align-self: center;
  justify-content: center;
 `;
-
-export const ImageOfferSection = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  width: ${ScreenWidth};
-`;
-
-export const ImageOfferDesc = styled.View`
-  flex: 1;
-  padding: ${Spacing.Large};
-`;
-
-export const PurchaseButton = styled.View`
-  width: ${ScreenWidth - 48};
-  height: 60;
-  border-width: 2;
-  border-radius: 10;
-  border-color: #006DFD;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-`;
-
-export const ConfirmPurchaseButton = styled(PurchaseButton)`
-  background-color: #006DFD;
-`;
-
-export const ModalContainer = styled.View`
-  flex: 1;
-  background-color: rgba(0, 0, 0, 0.85);
-`;
-
-export const ModalContent = styled.View`
-  flex: 1;
-  background-color: #E8F1F3;
-  padding: ${Spacing.Large};
-  justify-content: center;
-  align-self: center;
-  border-radius: 6;
-  width: ${ScreenWidth - 24};
-`;
-
-export const ModalBottomLine = styled.View`
-  border-width: 0.5;
-  border-color: #9DA4AF;
-  margin-top: 4px;
-`;
-
-export const ModalFlexImageText = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
