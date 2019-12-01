@@ -3,7 +3,7 @@ import { View, Image, TouchableOpacity, Modal, Alert, ActivityIndicator, Text } 
 import { ScreenWidth, ScreenHeight, Colors, VertSpacing, Flex, TextContent } from "../../../styles/base";
 import { currencyBRMask } from "../../../utils/utils";
 import { close } from '../../../../assets';
-import { OfferTitle, OfferNameText, OfferPriceText, DescText, CodeText, ModalHeader, ImageOfferSection, ImageOfferDesc, PurchaseButton, ModalContainer, ModalContent, ModalBottomLine, ModalFlexImageText, ConfirmPurchaseButton } from "../styles";
+import { OfferTitle, OfferNameText, OfferPriceText, DescText, CodeText, ModalHeader, ImageOfferSection, ImageOfferDesc, PurchaseButton, ModalContainer, ModalContent, ModalBottomLine, ModalFlexImageText, ConfirmPurchaseButton, ModalTitleContainer } from "../styles";
 
 const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount, mutationLoading }): ReactElement => {
   const {
@@ -11,8 +11,6 @@ const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount
     price,
     product: { name, description, image }
   } = item;
-
-  console.log(item)
 
   return (
     <Fragment>
@@ -97,16 +95,18 @@ const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount
           <ModalContainer>
             <Flex size={0.5} />
             <ModalContent>
+            <ModalTitleContainer>
+              <TextContent color={"#000"} size={24} weight={"regular"}>
+                Resumo da compra
+              </TextContent>
               <TouchableOpacity onPress={() => setModal(false)}>
                 <Image
                   source={close}
                   resizeMode="cover"
-                  style={{ width: 30, height: 30, position: 'absolute', bottom: 28, right: 12 }}
+                  style={{ width: 30, height: 30 }}
                 />
               </TouchableOpacity>
-              <TextContent color={"#000"} size={24} weight={"regular"}>
-                Resumo da compra
-              </TextContent>
+              </ModalTitleContainer>
               <VertSpacing size={24} />
               <TextContent color={"#9DA4AF"} size={18} weight={"regular"}>
                 Detalhe da oferta
@@ -132,7 +132,6 @@ const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount
               </ModalFlexImageText>
               <VertSpacing size={48} />
               <TouchableOpacity disabled={mutationLoading} onPress={() => purchase({ variables: { id } }).then(res => {
-                  console.log(res.data)
                   if (res.data.purchase.success){
                     Alert.alert('Compra realizada com sucesso!', '',
                     [
