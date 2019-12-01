@@ -5,6 +5,7 @@ export const PURCHASE = gql`
     purchase(offerId: $id) {
       success
       customer {
+        name
         balance
       }
     }

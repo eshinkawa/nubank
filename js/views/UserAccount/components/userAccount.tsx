@@ -14,10 +14,8 @@ import {
 } from "../../UserAccount/styles";
 import { currencyBRMask } from "../../../utils/utils";
 import { close } from '../../../../assets';
-import { useQuery } from "@apollo/react-hooks";
-import { USER_DATA } from "../../../schemas/userSchema";
 
-const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount, mutationLoading, client }): ReactElement => {
+const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount, loading, client }): ReactElement => {
   const {
     id,
     price,
@@ -152,17 +150,16 @@ const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount
                 </View>
               </ModalFlexImageText>
               <View style={{ height: 32 }} />
-              <TouchableOpacity disabled={mutationLoading} onPress={() => purchase({ variables: { id } }).then(res => {
+              <TouchableOpacity disabled={loading} onPress={() => purchase({ variables: { id } }).then(res => {
                   console.log(res.data)
                   if (res.data.purchase.success){
                     Alert.alert('Compra realizada com sucesso!', '',
                     [
-                      {
-                        text: 'OK', onPress: () => {
+                      { text: 'OK', onPress: () => {
                           navigateToAccount()
-                      }
+                        }
                       },
-                    ])
+                      ])
                   } else {
                     Alert.alert('Tivemos problemas tentando processar a sua compra :-(', 'Tente novamente')
                   }
@@ -172,7 +169,7 @@ const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount
                 })
               }>
                 <ConfirmPurchaseButton>
-                  {!mutationLoading ? <TextContent color={"#fff"} size={20} weight={"regular"}>
+                  {!loading ? <TextContent color={"#fff"} size={20} weight={"regular"}>
                     Comprar
                   </TextContent> : <ActivityIndicator size="small" color='#fff'/>}
                 </ConfirmPurchaseButton>

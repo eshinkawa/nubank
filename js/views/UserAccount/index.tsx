@@ -12,6 +12,9 @@ import { IOffer } from '../../interfaces';
 const UserAccount: FunctionComponent = () => {
   const { navigate } = useNavigation();
   const { data, loading } = useQuery(USER_DATA);
+
+  console.log('useraccount: ', data);
+  
   return (
     <SafeAreaCenteredContainer>
       {loading ? <ActivityIndicator size="large"/> :
@@ -31,8 +34,8 @@ const UserAccount: FunctionComponent = () => {
           </BalanceBox>
           <TextContent color={'#000'} size={24} weight={'regular'} style={{ padding: 16, paddingBottom: 16 }}>Ofertas disponíveis!</TextContent>
           <Offers>
-            {data.viewer.offers.map((item: IOffer) => (
-              <TouchableOpacity onPress={() => navigate('Offer', { item, balance: data.viewer.balance })} key={item.id}>
+            {data.viewer.offers.map((item: IOffer, index: number) => (
+              <TouchableOpacity onPress={() => navigate('Offer', { item, index })} key={item.id}>
                 <BoxOffer>
                   <UpperOfferBox>
                     <Image
