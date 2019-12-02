@@ -7,10 +7,10 @@ import UserAccountComp from './components/userAccount';
 
 const UserAccount: FunctionComponent = () => {
   const { navigate } = useNavigation();
-  const { data, loading } = useQuery(USER_DATA);
+  const { data, loading, error } = useQuery(USER_DATA);
   return (
     <SafeAreaCenteredContainer>
-      <UserAccountComp data={data} loading={loading} navigate={navigate}/>
+      <UserAccountComp data={data} loading={loading} navigate={navigate} error={error}/>
     </SafeAreaCenteredContainer>
   );
 };

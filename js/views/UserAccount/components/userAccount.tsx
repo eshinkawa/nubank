@@ -1,13 +1,19 @@
 import React, { ReactElement, FunctionComponent } from 'react';
 import { Colors, VertSpacing } from '../../../styles/base';
-import { Image, TouchableOpacity, ActivityIndicator, ScrollView } from 'react-native';
+import { Image, TouchableOpacity, ActivityIndicator, ScrollView, Text } from 'react-native';
 import { currencyBRMask } from '../../../utils/utils'
 import { Header, RoundUserImage, Offers, BoxOffer, UpperOfferBox, LowerOfferBox, BalanceBox, TextName, TextOffer, TextCenter, TextCenterWrap } from '../styles';
-import { IOffer } from '../../../interfaces';
+import { IOffer, IData } from '../../../interfaces';
+interface IUserAccountCompProps {
+  data: { viewer: IData },
+  loading: boolean,
+  navigate: Function,
+  error: any
+}
 
-const UserAccountComp = ({data, loading, navigate}): ReactElement => {
+const UserAccountComp = ({data, loading, navigate, error = false}: IUserAccountCompProps): ReactElement => {
   return (
-    <>{loading ? <ActivityIndicator size="large"/> :
+    <>{loading ? <ActivityIndicator size="large" testID="SpinnerUserAccount"/> :
       <ScrollView>
           <Header>
             <RoundUserImage>
@@ -23,7 +29,7 @@ const UserAccountComp = ({data, loading, navigate}): ReactElement => {
             <TextCenter color={'#763892'} size={28} weight={'bold'}>{currencyBRMask(data.viewer.balance) || 0}</TextCenter>
           </BalanceBox>
           <TextOffer color={'#000'} size={24} weight={'regular'}>Ofertas disponíveis!</TextOffer>
-          <Offers>
+          <Offers testID="Offers">
             {data.viewer.offers.map((item: IOffer, index: number) => (
               <TouchableOpacity onPress={() => navigate('Offer', { item, index })} key={item.id}>
                 <BoxOffer>
@@ -43,6 +49,7 @@ const UserAccountComp = ({data, loading, navigate}): ReactElement => {
             ))}
           </Offers>
         </ScrollView>}
+        {error && <Text testID="ErrorUserAccount">Error fetching data</Text>}
       </>
   );
 };

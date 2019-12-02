@@ -1,8 +1,8 @@
-{
+export default mockData = {
     "data": {
       "viewer": {
-        "name": "Jerry Smith",
-        "balance": 1000000,
+        "name": "Du Shin",
+        "balance": 9000000,
         "offers": [
           {
             "id": "offer/portal-gun",

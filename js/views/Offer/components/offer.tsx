@@ -4,8 +4,20 @@ import { ScreenWidth, ScreenHeight, Colors, VertSpacing, Flex, TextContent } fro
 import { currencyBRMask } from "../../../utils/utils";
 import { close } from '../../../../assets';
 import { OfferTitle, OfferNameText, OfferPriceText, DescText, CodeText, ModalHeader, ImageOfferSection, ImageOfferDesc, PurchaseButton, ModalContainer, ModalContent, ModalBottomLine, ModalFlexImageText, ConfirmPurchaseButton, ModalTitleContainer } from "../styles";
+import { IOffer } from '../../../interfaces';
 
-const OfferComp: FunctionComponent = ({ item, balance, modal, setModal, purchase, navigateToAccount, mutationLoading }): ReactElement => {
+interface IOfferCompProps {
+  item: IOffer,
+  balance: number,
+  modal: boolean,
+  setModal: Function,
+  purchase: Function,
+  navigateToAccount: Function,
+  mutationLoading: boolean,
+  client: Object
+}
+
+const OfferComp = ({ item, balance, modal, setModal, purchase, navigateToAccount, mutationLoading }: IOfferCompProps): ReactElement => {
   const {
     id,
     price,
@@ -73,7 +85,7 @@ const OfferComp: FunctionComponent = ({ item, balance, modal, setModal, purchase
         onPress={() => setModal(true)}
         disabled={price > balance}
       >
-        <PurchaseButton style={[price > balance && { opacity: 0.3 }]}>
+        <PurchaseButton style={{ opacity: price > balance ? 0.3 : 1 }} testID={'OfferPurchaseButton'}>
           <TextContent color={"#006DFD"} size={20} weight={"semiBold"}>
             Comprar
           </TextContent>
@@ -85,6 +97,7 @@ const OfferComp: FunctionComponent = ({ item, balance, modal, setModal, purchase
           size={16}
           weight={"semiBold"}
           style={{ textAlign: "center", marginTop: 4 }}
+          testID={'OfferInsufficientFundsText'}
         >
           Saldo insuficiente
         </TextContent>
@@ -92,7 +105,7 @@ const OfferComp: FunctionComponent = ({ item, balance, modal, setModal, purchase
       <VertSpacing size={12} />
       {modal && (
         <Modal animationType="slide" transparent={true} onRequestClose={() => setModal(false)}>
-          <ModalContainer>
+          <ModalContainer testID={'OfferModal'}>
             <Flex size={0.5} />
             <ModalContent>
             <ModalTitleContainer>
@@ -152,7 +165,7 @@ const OfferComp: FunctionComponent = ({ item, balance, modal, setModal, purchase
                 <ConfirmPurchaseButton>
                   {!mutationLoading ? <TextContent color={"#fff"} size={20} weight={"regular"}>
                     Comprar
-                  </TextContent> : <ActivityIndicator size="small" color='#fff'/>}
+                  </TextContent> : <ActivityIndicator size="small" color='#fff' testID={'OfferPurchaseButtonSpinner'}/>}
                 </ConfirmPurchaseButton>
               </TouchableOpacity>
             </ModalContent>

@@ -7,6 +7,7 @@ import { PURCHASE } from '../../schemas/purchaseSchema';
 import OfferComp from './components/offer';
 import { USER_DATA } from '../../schemas/userSchema';
 
+
 const Offer = (): ReactElement => {
   const { getParam, navigate } = useNavigation();
   const index = getParam('index');
