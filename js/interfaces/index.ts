@@ -31,3 +31,14 @@ export interface IData {
   product: IProduct;
   offers: IOffer[]
 }
+
+export interface IModalOffer {
+  setModal: (isModalOpen: boolean) => void;
+  image: string;
+  price: string;
+  mutationLoading: boolean;
+  navigateToAccount: () => void;
+  name: string;
+  purchase: () => void;
+  id: string;
+}

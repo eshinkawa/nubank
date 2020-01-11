@@ -1,24 +1,12 @@
-import React, { ReactElement, Fragment } from "react";
+import React, {  } from "react";
 
 import {
-  View,
   Image,
   TouchableOpacity,
   Modal,
-  Alert,
-  ActivityIndicator,
-  Text
-} from "react-native";
+  ActivityIndicator} from "react-native";
 import {
-  OfferTitle,
-  OfferNameText,
-  OfferPriceText,
-  DescText,
-  CodeText,
   ModalHeader,
-  ImageOfferSection,
-  ImageOfferDesc,
-  PurchaseButton,
   ModalContainer,
   ModalContent,
   ModalBottomLine,
@@ -28,26 +16,14 @@ import {
 } from "../styles";
 import { TextContent, Flex, VertSpacing } from "../../../styles/base";
 import { close } from "../../../../assets";
-
-interface IModalOffer {
-  setModal: (isModalOpen: boolean) => void;
-  image: string;
-  price: string;
-  mutationLoading: boolean;
-  navigateToAccount: () => void;
-  name: string;
-  purchase: () => void;
-  id: string;
-}
+import { IModalOffer } from "../../../interfaces"
 
 const ModalOffer = ({
   setModal,
   price,
   mutationLoading,
-  navigateToAccount,
   name,
   purchase,
-  id,
   image
 }: IModalOffer) => {
   return (
