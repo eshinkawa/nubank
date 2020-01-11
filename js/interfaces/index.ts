@@ -22,6 +22,9 @@ export interface IContextProviderProps {
   children?: ReactNode;
 }
 
+export interface IDataApi {
+  data: IData
+}
 export interface IData {
   name: string;
   balance: number;
