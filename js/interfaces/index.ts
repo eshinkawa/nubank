@@ -17,14 +17,17 @@ export interface IUser {
   balance: number;
   offers: IOffer[];
 }
+
 export interface IContextProviderProps {
   defaults?: Partial<IData>;
   children?: ReactNode;
 }
 
+
 export interface IDataApi {
   data: IData
 }
+
 export interface IData {
   name: string;
   balance: number;

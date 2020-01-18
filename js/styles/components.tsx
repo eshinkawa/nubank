@@ -8,12 +8,12 @@ const CenteredContainerStr = `
   align-items: center;
 `
 
-export const CenteredContainer = styled.View`
+export const CenteredContainer = styled.View<{bgColor: string}>`
     ${CenteredContainerStr};
-    background-color: ${(props: string) => props.bgColor || '#D7D6D6'};
+    background-color: ${props => props.bgColor || '#D7D6D6'};
 `;
 
-export const SafeAreaCenteredContainer = styled.SafeAreaView`
+export const SafeAreaCenteredContainer = styled.SafeAreaView<{bgColor: string}>`
     ${CenteredContainerStr};
-    background-color: ${(props: string) => props.bgColor || '#F2F6FA'};
+    background-color: ${props => props.bgColor || '#F2F6FA'};
 `;

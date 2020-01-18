@@ -7,7 +7,6 @@ import SplashScreen from "../views/SplashScreen";
 import UserAccount from "../views/UserAccount";
 import Offer from "../views/Offer";
 
-import Header from '../components/header'
 import { Colors, FontStyles } from '../styles/base';
 
 const splashStack = createStackNavigator({

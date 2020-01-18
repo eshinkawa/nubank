@@ -1,7 +1,22 @@
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
-export const Colors = {
+interface IColors {
+  [key: string]: string
+}
+interface IFont {
+  [key: string]: string
+}
+
+interface ISize {
+  [key: string]: number
+}
+
+interface ISpacing {
+  [key: string]: string
+}
+
+export const Colors: IColors = {
   white: '#fff',
   green: '#19ab53',
   lightGreen: '#51c07d',
@@ -21,7 +36,7 @@ export const Colors = {
   nuGray: '#E4E0EE'
 };
 
-export const FontStyles = {
+export const FontStyles: IFont = {
   light: 'OpenSans-Light',
   regular: 'OpenSans-Regular',
   semiBold: 'OpenSans-SemiBold',
@@ -29,7 +44,7 @@ export const FontStyles = {
   extraBold: 'OpenSans-ExtraBold',
 };
 
-export const FontSize = {
+export const FontSize: ISize = {
   XSmall: 12,
   Small: 14,
   Medium: 16,
@@ -37,7 +52,7 @@ export const FontSize = {
   XLarge: 24,
 };
 
-export const Spacing = {
+export const Spacing: ISpacing = {
   XSmall: '4px',
   Small: '8px',
   Medium: '16px',
@@ -51,29 +66,29 @@ const CenteredContainerStr = `
   align-items: center;
 `;
 
-export const TextContent = styled.Text`
-  font-family: ${(props: string) => FontStyles[props.weight]};
-  font-size: ${(props: string) => props.size};
-  color: ${(props: string) => props.color};
+export const TextContent = styled.Text<{ weight: string, size: string, color: string }>`
+  font-family: ${props => FontStyles[props.weight]};
+  font-size: ${props => props.size};
+  color: ${props => props.color};
 `;
 
-export const VertSpacing = styled.View`
-  height: ${(props: string) => props.size};
+export const VertSpacing = styled.View<{ size: string }>`
+  height: ${props => props.size};
 `;
 
-export const Flex = styled.View`
-  flex: ${(props: string) => props.size};
+export const Flex = styled.View<{ size: string }>`
+  flex: ${props => props.size};
 `;
 
 
-export const CenteredContainer = styled.View`
+export const CenteredContainer = styled.View<{ bgColor: string }>`
   ${CenteredContainerStr};
-  background-color: ${(props: string) => props.bgColor || Colors.white};
+  background-color: ${props => props.bgColor || Colors.white};
 `;
 
-export const SafeAreaCenteredContainer = styled.SafeAreaView`
+export const SafeAreaCenteredContainer = styled.SafeAreaView<{ bgColor: string }>`
   ${CenteredContainerStr};
-  background-color: ${(props: string) => props.bgColor || Colors.whiteGrey};
+  background-color: ${props => props.bgColor || Colors.whiteGrey};
 `;
 
 export const ScreenWidth = Dimensions.get('window').width;
